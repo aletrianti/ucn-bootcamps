@@ -12,7 +12,9 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json({ extended: false }));
 
-// mongoose.connect();
+mongoose.connect('mongodb+srv://admin:admin123@typeit-lnmle.mongodb.net/post-app?retryWrites=true&w=majority', { useNewUrlParser: true })
+        .then(() => console.log('Database connected'))
+        .catch((err) => console.log('Error: ' + err));
 
 // Routes
 app.get('/', (req, res) => {
