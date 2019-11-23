@@ -10,7 +10,7 @@
 
 <body>
     <h1>New Post</h1>
-    <form action="" method="POST">
+    <form action="/posts" method="POST">
         <input type="text" name="title" placeholder="New post title">
         <input type="text" name="content" placeholder="New post content">
         <input type="submit" value="Create">
@@ -19,7 +19,7 @@
     <% if(posts){ %>
         <h2>Post List:</h2>
         <% posts.forEach(post){ %>
-            <h4><a href=""><%= post.title %></a></h2>
+            <h4><a href="/posts/<%= post._id %>"><%= post.title %></a></h2>
         <% } %>
     <% } else{ %>
         <h2>No posts yet</h2>
