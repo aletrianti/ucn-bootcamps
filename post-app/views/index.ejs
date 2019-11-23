@@ -18,9 +18,9 @@
 
     <% if(posts){ %>
         <h2>Post List:</h2>
-        <% posts.forEach(post){ %>
+        <% posts.forEach(function(post){ %>
             <h4><a href="/posts/<%= post._id %>"><%= post.title %></a></h2>
-        <% } %>
+        <% }); %>
     <% } else{ %>
         <h2>No posts yet</h2>
     <% } %>
