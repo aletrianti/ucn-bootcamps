@@ -12,6 +12,8 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json({ extended: false }));
 
+// mongoose.connect();
+
 // Routes
 app.get('/', (req, res) => {
     Post.find({}, (err, posts) => {
@@ -37,6 +39,17 @@ app.post('/posts', (req, res) => {
     }
 
     res.redirect('/');
+});
+
+app.get('/posts/:id', (req, res) => {
+    Post.findById(req.params.id, (err, post) => {
+        if (err) {
+            console.log(err);
+            res.render('show-post');
+        } else {
+            res.render('show-post', { post: post });
+        }
+    });
 });
 
 const port = process.env.PORT || 3000;
